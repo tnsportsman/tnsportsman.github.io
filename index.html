@@ -79,6 +79,21 @@
       font-size: 16px;
       font-weight: bold;
     }
+
+    .contact a {
+      color: black;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+      .title { font-size: 22px; }
+      .subtitle { font-size: 18px; }
+      .date { font-size: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -112,7 +127,10 @@
 
     <div class="contact">
       Donnie Daniels<br>
-      931-205-0176
+      <a href="tel:9312050176">931-205-0176</a><br>
+      <a href="mailto:ddaniels@frontiernet.net">
+        ddaniels@frontiernet.net
+      </a>
     </div>
 
   </div>
