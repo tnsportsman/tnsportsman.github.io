@@ -13,71 +13,90 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      padding: 30px 15px;
+      box-sizing: border-box;
     }
 
     .card {
       background-color: #f7dc6f;
       border: 4px solid black;
-      max-width: 520px;
-      width: 90%;
-      padding: 25px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      max-width: 560px;
+      width: 100%;
+      min-height: 760px;
+      padding: 36px 28px;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.35);
       text-align: center;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .top-section {
+      margin-bottom: 20px;
     }
 
     .title {
-      font-size: 26px;
+      font-size: 30px;
       font-weight: bold;
-      margin-bottom: 5px;
+      line-height: 1.2;
+      margin-bottom: 8px;
     }
 
     .subtitle {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
     }
 
     .location {
-      font-size: 16px;
-      margin-bottom: 20px;
-      line-height: 1.4;
+      font-size: 17px;
+      line-height: 1.5;
+      margin-bottom: 28px;
     }
 
     .dates-box {
       border: 3px solid black;
-      padding: 15px;
-      margin: 20px 0;
+      padding: 22px 16px;
+      margin: 0 auto 24px;
+      background-color: rgba(255, 255, 255, 0.08);
     }
 
     .dates-title {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
       text-decoration: underline;
     }
 
     .date {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: bold;
-      margin: 10px 0;
+      margin: 12px 0;
     }
 
     .hours {
-      font-size: 16px;
-      margin-top: 10px;
+      font-size: 17px;
+      margin-top: 6px;
       font-weight: bold;
+      line-height: 1.5;
     }
 
     .info {
-      margin-top: 15px;
-      font-size: 15px;
-      line-height: 1.4;
+      margin-top: 10px;
+      font-size: 17px;
+      line-height: 1.7;
+      padding: 18px 10px 6px;
     }
 
     .contact {
-      margin-top: 20px;
-      font-size: 16px;
+      margin-top: 28px;
+      font-size: 17px;
       font-weight: bold;
+      line-height: 1.7;
+      padding-top: 22px;
+      border-top: 2px solid black;
     }
 
     .contact a {
@@ -90,49 +109,76 @@
     }
 
     @media (max-width: 500px) {
-      .title { font-size: 22px; }
-      .subtitle { font-size: 18px; }
-      .date { font-size: 20px; }
+      body {
+        padding: 16px 10px;
+      }
+
+      .card {
+        min-height: auto;
+        padding: 26px 18px;
+      }
+
+      .title {
+        font-size: 24px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .date {
+        font-size: 22px;
+      }
+
+      .location,
+      .hours,
+      .info,
+      .contact {
+        font-size: 15px;
+      }
+
+      .dates-title {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <div class="title">Tennessee Classic Sportsman Show</div>
-    <div class="subtitle">Guns & Knives</div>
+    <div class="top-section">
+      <div class="title">Tennessee Classic Sportsman Show</div>
+      <div class="subtitle">Guns & Knives</div>
 
-    <div class="location">
-      White County Fair Grounds Ag. Building<br>
-      565 Hale St.<br>
-      Sparta, Tennessee 38583
-    </div>
+      <div class="location">
+        White County Fair Grounds Ag. Building<br>
+        565 Hale St.<br>
+        Sparta, Tennessee 38583
+      </div>
 
-    <div class="dates-box">
-      <div class="dates-title">2026 Show Dates</div>
-      <div class="date">March 21–22</div>
-      <div class="date">May 16–17</div>
-    </div>
+      <div class="dates-box">
+        <div class="dates-title">2026 Show Dates</div>
+        <div class="date">March 21–22</div>
+        <div class="date">May 16–17</div>
+      </div>
 
-    <div class="hours">
-      Saturday: 9am–4pm<br>
-      Sunday: 9am–3pm
-    </div>
+      <div class="hours">
+        Saturday: 9am–4pm<br>
+        Sunday: 9am–3pm
+      </div>
 
-    <div class="info">
-      Admission: $8<br>
-      12 & under free with adult<br><br>
-      Tables: $50 per 6-foot table
+      <div class="info">
+        Admission: $8<br>
+        12 & under free with adult<br><br>
+        Tables: $50 per 6-foot table
+      </div>
     </div>
 
     <div class="contact">
-  Donnie Daniels<br>
-  <a href="mailto:ddaniels@frontiernet.net">
-    ddaniels@frontiernet.net
-  </a><br>
-  <a href="tel:9312050176">931-205-0176</a>
-</div>
-
+      Donnie Daniels<br>
+      <a href="mailto:ddaniels@frontiernet.net">ddaniels@frontiernet.net</a><br>
+      <a href="tel:9312050176">931-205-0176</a>
+    </div>
   </div>
 
 </body>
