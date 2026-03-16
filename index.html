@@ -5,181 +5,341 @@
   <title>Tennessee Classic Sportsman Show</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --bg: #f4d03f;
+      --panel: #f7dc6f;
+      --panel-soft: #fae79b;
+      --text: #1b1b1b;
+      --border: #1b1b1b;
+      --shadow: rgba(0, 0, 0, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: #f4d03f;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(244, 208, 63, 0.94), rgba(244, 208, 63, 0.94)),
+        radial-gradient(circle at top left, #fff2b2 0%, #f4d03f 55%, #e6bf2a 100%);
       min-height: 100vh;
-      padding: 30px 15px;
-      box-sizing: border-box;
     }
 
-    .card {
-      background-color: #f7dc6f;
-      border: 4px solid black;
-      max-width: 560px;
+    .page {
       width: 100%;
-      min-height: 760px;
-      padding: 36px 28px;
-      box-shadow: 0 0 18px rgba(0, 0, 0, 0.35);
-      text-align: center;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 36px 20px 56px;
     }
 
-    .top-section {
-      margin-bottom: 20px;
+    .hero {
+      background: linear-gradient(180deg, var(--panel) 0%, var(--panel-soft) 100%);
+      border: 3px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 16px 38px var(--shadow);
+      padding: 34px 34px 28px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
     .title {
-      font-size: 30px;
-      font-weight: bold;
-      line-height: 1.2;
-      margin-bottom: 8px;
+      font-size: 44px;
+      line-height: 1.08;
+      font-weight: 800;
+      margin: 0 0 10px;
     }
 
     .subtitle {
       font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 24px;
-      letter-spacing: 0.5px;
+      font-weight: 700;
+      margin: 0 0 22px;
     }
 
-    .location {
-      font-size: 17px;
-      line-height: 1.5;
-      margin-bottom: 28px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 22px;
+      align-items: stretch;
     }
 
-    .dates-box {
-      border: 3px solid black;
-      padding: 22px 16px;
-      margin: 0 auto 24px;
-      background-color: rgba(255, 255, 255, 0.08);
+    .venue-card,
+    .quick-card,
+    .section-card {
+      background: rgba(255, 255, 255, 0.26);
+      border: 2px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
     }
 
-    .dates-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 16px;
-      text-decoration: underline;
+    .section-label {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 10px;
     }
 
-    .date {
+    .venue-card p,
+    .quick-card p,
+    .contact-card p {
+      margin: 0;
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    .quick-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hours-line {
       font-size: 28px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .hours-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 22px;
+    }
+
+    .section-card {
+      background: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: 27px;
+      font-weight: 800;
+    }
+
+    .dates-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .date-item {
+      background: rgba(255, 255, 255, 0.38);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .date-name {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .date-note {
+      font-size: 15px;
       font-weight: bold;
-      margin: 12px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
     }
 
-    .hours {
-      font-size: 17px;
-      margin-top: 6px;
-      font-weight: bold;
-      line-height: 1.5;
+    .detail-stack {
+      display: grid;
+      gap: 14px;
     }
 
-    .info {
-      margin-top: 10px;
-      font-size: 17px;
-      line-height: 1.7;
-      padding: 18px 10px 6px;
+    .detail-box {
+      background: rgba(255, 255, 255, 0.38);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 18px;
     }
 
-    .contact {
-      margin-top: 28px;
-      font-size: 17px;
-      font-weight: bold;
-      line-height: 1.7;
-      padding-top: 22px;
-      border-top: 2px solid black;
+    .detail-box h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
     }
 
-    .contact a {
-      color: black;
+    .detail-box p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .contact-card {
+      margin-top: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.34), rgba(255,255,255,0.18));
+      border: 2px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .contact-title {
+      margin: 0 0 12px;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .contact-card a {
+      color: var(--text);
       text-decoration: none;
+      font-weight: 700;
     }
 
-    .contact a:hover {
+    .contact-card a:hover {
       text-decoration: underline;
     }
 
-    @media (max-width: 500px) {
-      body {
-        padding: 16px 10px;
-      }
-
-      .card {
-        min-height: auto;
-        padding: 26px 18px;
+    @media (max-width: 850px) {
+      .hero-grid,
+      .content-grid {
+        grid-template-columns: 1fr;
       }
 
       .title {
+        font-size: 34px;
+      }
+
+      .subtitle {
+        font-size: 20px;
+      }
+
+      .date-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .quick-card {
+        text-align: left;
+      }
+
+      .hours-line {
         font-size: 24px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 18px 12px 30px;
+      }
+
+      .hero {
+        padding: 22px 18px 18px;
+        border-radius: 18px;
+      }
+
+      .title {
+        font-size: 28px;
       }
 
       .subtitle {
         font-size: 18px;
       }
 
-      .date {
+      .section-title,
+      .contact-title {
         font-size: 22px;
       }
 
-      .location,
-      .hours,
-      .info,
-      .contact {
-        font-size: 15px;
+      .venue-card p,
+      .quick-card p,
+      .detail-box p,
+      .contact-card p {
+        font-size: 16px;
       }
 
-      .dates-title {
-        font-size: 18px;
+      .date-name {
+        font-size: 24px;
+      }
+
+      .hours-line {
+        font-size: 20px;
       }
     }
   </style>
 </head>
 <body>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">Sparta, Tennessee</div>
+      <h1 class="title">Tennessee Classic Sportsman Show</h1>
+      <p class="subtitle">Guns &amp; Knives</p>
 
-  <div class="card">
-    <div class="top-section">
-      <div class="title">Tennessee Classic Sportsman Show</div>
-      <div class="subtitle">Guns & Knives</div>
+      <div class="hero-grid">
+        <div class="venue-card">
+          <div class="section-label">Location</div>
+          <p>
+            White County Fair Grounds Ag. Building<br>
+            565 Hale St.<br>
+            Sparta, Tennessee 38583
+          </p>
+        </div>
 
-      <div class="location">
-        White County Fair Grounds Ag. Building<br>
-        565 Hale St.<br>
-        Sparta, Tennessee 38583
+        <div class="quick-card">
+          <div class="section-label">Show Hours</div>
+          <div class="hours-line">Saturday 9am–4pm</div>
+          <div class="hours-line">Sunday 9am–3pm</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <div class="section-card">
+        <h2 class="section-title">2026 Show Dates</h2>
+        <div class="dates-list">
+          <div class="date-item">
+            <div class="date-name">March 21–22</div>
+            <div class="date-note">Weekend Show</div>
+          </div>
+          <div class="date-item">
+            <div class="date-name">May 16–17</div>
+            <div class="date-note">Weekend Show</div>
+          </div>
+        </div>
       </div>
 
-      <div class="dates-box">
-        <div class="dates-title">2026 Show Dates</div>
-        <div class="date">March 21–22</div>
-        <div class="date">May 16–17</div>
+      <div class="section-card">
+        <h2 class="section-title">Admission &amp; Tables</h2>
+        <div class="detail-stack">
+          <div class="detail-box">
+            <h3>Admission</h3>
+            <p>$8 admission<br>12 and under free with adult</p>
+          </div>
+          <div class="detail-box">
+            <h3>Tables</h3>
+            <p>$50 per 6-foot table</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="hours">
-        Saturday: 9am–4pm<br>
-        Sunday: 9am–3pm
-      </div>
-
-      <div class="info">
-        Admission: $8<br>
-        12 & under free with adult<br><br>
-        Tables: $50 per 6-foot table
-      </div>
-    </div>
-
-    <div class="contact">
-      Donnie Daniels<br>
-      <a href="mailto:ddaniels@frontiernet.net">ddaniels@frontiernet.net</a><br>
-      <a href="tel:9312050176">931-205-0176</a>
-    </div>
-  </div>
-
+    <section class="contact-card">
+      <h2 class="contact-title">Contact</h2>
+      <p>
+        Donnie Daniels<br>
+        <a href="mailto:ddaniels@frontiernet.net">ddaniels@frontiernet.net</a><br>
+        <a href="tel:9312050176">931-205-0176</a>
+      </p>
+    </section>
+  </main>
 </body>
 </html>
